@@ -1,0 +1,31 @@
+{% extends "layout.html" %} {% block title %} Profile {% endblock %} {% block main %}
+<section class="profile-container text-center">
+  <div class="profile-info">
+    <img src="{{ avatars.robohash(user.id) }}">
+    <h2>{{ user.username }}</h2>
+    <p class="lead">Stock Investor</p>
+    <a href="/password" class="btn text-bg-danger">Change Password</a>
+  </div>
+
+  <div class="profile-stats">
+    <div class="stat-item rounded-4 bg-light lead">
+      <p class="stat-label fw-bold">Shares</p>
+      <p class="stat-value">{{ shares_count }}</p>
+    </div>
+    <div class="stat-item rounded-4 bg-light lead">
+      <p class="stat-label fw-bold">Companies</p>
+      <p class="stat-value">{{ companies }}</p>
+    </div>
+    <div class="stat-item rounded-4 bg-light lead">
+      <p class="stat-label fw-bold">Price</p>
+      <p class="stat-value">{{ total_price | usd }}</p>
+    </div>
+    <div class="stat-item rounded-4 bg-light lead">
+      <p class="stat-label fw-bold">Cash</p>
+      <p class="stat-value">{{ cash | usd }}</p>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

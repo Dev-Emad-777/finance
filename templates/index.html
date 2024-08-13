@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block title %} Home {% endblock %} {% block main %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-start">Cash: <span class="text-success">{{ cash | usd}}</span></th>
+    </tr>
+  </thead>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-start">Symbol</th>
+      <th class="text-end">Shares</th>
+      <th class="text-end">Price</th>
+      <th class="text-end">TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for share in shares %}
+    <tr>
+      <td class="text-start">{{share.symbol}}</td>
+      <td class="text-end">{{share.total_shares}}</td>
+      <td class="text-end">{{((share.symbol)| lookup).price | usd}}</td>
+      <td class="text-end">{{((((share.symbol| lookup).price) | float ) * (share.total_shares | int )) | usd}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
