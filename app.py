@@ -8,7 +8,6 @@ from helpers import apology, login_required, lookup, usd
 from flask_avatars import Avatars
 
 
-
 # Configure application
 app = Flask(__name__)
 avatars = Avatars(app)
@@ -380,5 +379,13 @@ def password():
         return render_template("password.html")
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+@app.route("/about", methods=["GET"])
+def about():
+    seq = db.execute(" SELECT * FROM sqlite_sequence;")
+    users = seq[0]
+    trades = seq[1]
+    return render_template("about.html", users=users, trades=trades)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

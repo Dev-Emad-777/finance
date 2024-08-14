@@ -1,28 +1,63 @@
 {% extends "layout.html" %} {% block title %} Profile {% endblock %} {% block main %}
-<section class="profile-container text-center">
-  <div class="profile-info">
-    <img src="{{ avatars.robohash(user.id) }}">
+<section class="container ">
+  <div class="text-center">
+    <img src="{{ avatars.robohash(user.id) }}" class="mb-1">
     <h2>{{ user.username }}</h2>
     <p class="lead">Stock Investor</p>
     <a href="/password" class="btn text-bg-danger">Change Password</a>
   </div>
-
+<!-- 
   <div class="profile-stats">
     <div class="stat-item rounded-4 bg-light lead">
-      <p class="stat-label fw-bold">Shares</p>
-      <p class="stat-value">{{ shares_count }}</p>
+      <p class="fw-bold text-center m-0">Shares</p>
+      <p class="display-6 fw-bold text-danger text-center mb-2">{{ shares_count }}</p>
     </div>
     <div class="stat-item rounded-4 bg-light lead">
-      <p class="stat-label fw-bold">Companies</p>
-      <p class="stat-value">{{ companies }}</p>
+      <p class="fw-bold text-center m-0">Companies</p>
+      <p class="display-6 fw-bold text-danger text-center mb-2">{{ companies }}</p>
     </div>
     <div class="stat-item rounded-4 bg-light lead">
-      <p class="stat-label fw-bold">Price</p>
-      <p class="stat-value">{{ total_price | usd }}</p>
+      <p class="fw-bold text-center m-0">Price</p>
+      <p class="display-6 fw-bold text-danger text-center mb-2">{{ total_price | usd }}</p>
     </div>
     <div class="stat-item rounded-4 bg-light lead">
-      <p class="stat-label fw-bold">Cash</p>
-      <p class="stat-value">{{ cash | usd }}</p>
+      <p class="fw-bold text-center m-0">Cash</p>
+      <p class="display-6 fw-bold text-danger text-center mb-2">{{ cash | usd }}</p>
+    </div>
+  </div> -->
+
+  <div class="row gy-4 mb-4 mb-md-5 mt-4">
+    <div class="col-12 col-md-3 ">
+      <div class="card shadow shadow-danger rounded-4 border border-dark">
+        <div class="card-body p-4">
+          <h3 class="display-5 fw-bold text-primary text-center mb-2">{{ shares_count }}</h3>
+          <p class="fw-bold text-center m-0">Shares</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 ">
+      <div class="card shadow shadow-danger rounded-4 border border-dark">
+        <div class="card-body p-4">
+          <h3 class="display-5 fw-bold text-primary text-center mb-2">{{ companies }}</h3>
+          <p class="fw-bold text-center m-0">Companies</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 ">
+      <div class="card shadow shadow-danger rounded-4 border border-dark">
+        <div class="card-body p-4">
+          <h3 class="display-5 fw-bold text-primary text-center mb-2">{{ total_price | usd }}</h3>
+          <p class="fw-bold text-center m-0">Price</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 ">
+      <div class="card shadow shadow-danger rounded-4 border border-dark">
+        <div class="card-body p-4">
+          <h3 class="display-5 fw-bold text-primary text-center mb-2">{{ cash | usd }}</h3>
+          <p class="fw-bold text-center m-0">Cash</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
